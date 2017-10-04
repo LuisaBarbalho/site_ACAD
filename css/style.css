@@ -1,34 +1,55 @@
 *{
   font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+}
+
+.jumbotron{
+  background-color: transparent !important;
+  text-align: center !important;
+}
+
+.jumbotron p{
+  margin-bottom: 50px !important;
+  font-weight: 400 !important;
+}
+
+.imagem-brand{
+  width: 30%;
+  height: 30%;
+  margin: 0;
+}
+
+.carousel-control{
+  color: black !important;
+  background: transparent !important;
 }
 
 #custom-bootstrap-menu.navbar-default .navbar-brand {
     color: rgba(119, 119, 119, 1);
     display: inline-block;
-    border-style: solid;
-    border-color: black;
-    border-radius: 5px;
-    border-width: 1px;
-    padding: 5px;
-    margin: 10px;
+    border: none;
+    padding: 0px;
+    margin: 0px;
     height: auto;
 }
 #custom-bootstrap-menu.navbar-default {
     font-size: 14px;
-    background-color: rgba(255, 255, 255, 1);
-    border-width: 0.5px;
-    border-radius: 5px;
+    background-color: #E85950;
+    border:none;
     margin: 0px;
     position: static;
 }
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
-    color: rgba(119, 119, 119, 1);
-    background-color: rgba(248, 248, 248, 0);
+    font-size: 20px;
+    color: white;
+    background-color: #E85950;
+    margin-top: 10px;
 }
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
     color: rgba(51, 51, 51, 1);
-    background-color: rgba(248, 248, 248, 0);
+    background-color: gray;
+    margin-right: 10px;
 }
 #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
 #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
@@ -53,8 +74,8 @@
 }
 
 .imagem-home{
-  width: 85%;
-  height: 85%;
+  width: 50%;
+  height: 50%;
 }
 
 .categoria-banner{
@@ -62,12 +83,26 @@
   background-color: #E85950; /*vermelho*/
   height: auto;
   padding: 0;
-  position: static;
+  position: relative;
+  bottom: 20px;
+  z-index: -1;
 }
 
 .categoria-titulo{
-  font-size: 100px;
+  font-size: 80px;
+  font-weight: 100 !important;
   display: inline;
+}
+
+.titulo-curso{
+  font-size: 50px;
+  font-weight: 100 !important;
+}
+
+.subtitulo-pagina{
+  font-size: 30px;
+  position: relative;
+  bottom: 15px;
 }
 
 .categoria-icones{
@@ -106,7 +141,7 @@
 }
 
 .ementa{
-  background-color: rgba(232, 89, 80, 0.3); /*vermelho claro*/
+  background-color: #ffffff /*vermelho claro*/
   text-align: left;
   border-color: red;
   padding-left: 30px;
@@ -115,14 +150,22 @@
 
 .ementa li{
   padding-bottom: 5px;
+  font-size: 15px;
 }
 
 .dados{
+  display: inline-block;
   background-color: #DBDDDC;
   border-color: gray;
   padding-left: 15px;
   padding-right: 30px;
-  padding-top: 30px;
+  padding-top: 0;
+}
+
+.dados p{
+  margin-left: 50px;
+  padding: 0;
+  font-size: 20px;
 }
 
 .dados, .ementa{
@@ -171,7 +214,6 @@
   text-align: left;
 }
 
-
 .form{
   background-color: white;
   font-size: 15px;
@@ -198,7 +240,7 @@
   border-width: 2px;
 }
 
-button {
+.butao {
     background-color: #E85950; /*vermelho*/
     border-radius: 5px;
     border: none;
@@ -224,4 +266,10 @@ a:link:hover, a:visited:hover{
 a:link:active, a:visited:active {
     color: black;
     text-decoration: none;
+}
+
+.icone-curso{
+  display: inline;
+  position: relative;
+  top: 30px;
 }
