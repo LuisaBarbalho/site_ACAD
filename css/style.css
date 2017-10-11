@@ -240,6 +240,12 @@
   border-width: 2px;
 }
 
+.logout{
+  position: relative;
+  bottom: 60px;
+  margin-right: 10px;
+}
+
 .butao {
     background-color: #E85950; /*vermelho*/
     border-radius: 5px;
