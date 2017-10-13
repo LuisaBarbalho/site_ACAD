@@ -16,10 +16,14 @@
   <?php
     $_tituloPagina = "Login";
     $_subtituloPagina = "ADMNISTRADOR";
+    require_once ("../library/library.php");
+    require_once ("../session/session.php");
+    $_SESSION['login'] = " ";
+    $_SESSION['senha'] = " ";
     require_once ("../includes/menu.php");
   ?>
   <div class="text-right">
-    <button class="logout btn btn-danger"><a href="./index.php">Entrar sem logar</a></button>
+    <button class="logout btn btn-danger"><a href="../controller/controller_sem_logar.php">Entrar sem logar</a></button>
   </div>
 
   <div class="form">

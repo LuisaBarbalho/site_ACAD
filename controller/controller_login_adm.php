@@ -15,7 +15,7 @@ require_once "../session/session.php";
   if($_verificaLogin){
     $_SESSION['login'] = $_login;
     $_SESSION['senha'] = $_senha;
-    header("Location: http://" . achaIP() . ":80/site_ACAD/view/index_adm.php");
+    header("Location: http://" . achaIP() . ":80/site_ACAD/view/index.php");
   }
 
   else{

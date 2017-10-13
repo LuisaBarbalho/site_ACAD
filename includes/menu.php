@@ -16,6 +16,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="./index.php">Home</a></li>
         <li><a href="./cursos.php">Cursos</a></li>
+        <li><?php incluiLogin($_SESSION['login'], $_SESSION['senha']); ?></li>
       </ul>
     </div>
   </div>

@@ -21,7 +21,10 @@
   <?php
     $_tituloPagina = "SEDIS Academy";
     $_subtituloPagina = "Investindo em você";
+    require_once ("../library/library.php");
+    require_once ("../session/session.php");
     require_once ("../includes/menu.php");
+    incluiLogout($_SESSION['login'], $_SESSION['senha']);
   ?>
 
   <div class="jumbotron">

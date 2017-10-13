@@ -14,4 +14,31 @@
     return $_ip;
   }
 
+  function incluiLogout($_login, $_senha){
+    if($_login == "souadm" && $_senha == "1029384756"){
+      require_once ("../includes/logout.php");
+    }
+  }
+
+  function incluiAdd($_login, $_senha){
+    if($_login == "souadm" && $_senha == "1029384756"){
+      require_once ("../includes/add_button.php");
+    }
+  }
+
+  function incluiEdit($_login, $_senha){
+    if($_login == "souadm" && $_senha == "1029384756"){
+      require_once ("../includes/edit_button.php");
+    }
+  }
+
+  function incluiLogin($login, $senha){
+    if(verificaLogin($login, $senha)){
+      require_once ("../includes/login_adm_info.php");
+    }
+    else {
+      require_once("../includes/login_adm_button.php");
+    }
+  }
+
 ?>

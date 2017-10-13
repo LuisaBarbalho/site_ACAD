@@ -16,7 +16,11 @@
   <?php
     $_tituloPagina = "Cursos";
     $_subtituloPagina = "";
+    require_once ("../library/library.php");
+    require_once ("../session/session.php");
     require_once ("../includes/menu.php");
+    incluiLogout($_SESSION['login'], $_SESSION['senha']);
+    incluiAdd($_SESSION['login'], $_SESSION['senha']);
   ?>
 
   <!-- divisão de 3 colunas contendo os cursos oferecidos -->
@@ -34,6 +38,7 @@
         <!-- botão que leva à ementa e aos dados do curso,
         direcionando para baixo por smooth scroll -->
         <button class="btn btn-danger"><a href="./linux.php">Saiba Mais</a></button>
+        <?php incluiEdit($_SESSION['login'], $_SESSION['senha']); ?>
       </div>
 
       <!-- 2a coluna: curso de git -->
