@@ -28,8 +28,9 @@
     <div class="row">
 
       <!-- 1a coluna: curso de Linux -->
-      <div class="col-md-4">
+      <div class="curso_bloco col-md-4">
         <img src="../img/linux_logo.png" height="80" width="80" />
+        <?php incluiDelete($_SESSION['login'], $_SESSION['senha']); ?>
         <h3>Linux</h3>
         <!-- pequena explicação -->
         <p class="text-justify">

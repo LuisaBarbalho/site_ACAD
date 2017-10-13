@@ -32,6 +32,12 @@
     }
   }
 
+  function incluiDelete($_login, $_senha){
+    if($_login == "souadm" && $_senha == "1029384756"){
+      require_once ("../includes/delete_button.php");
+    }
+  }
+
   function incluiLogin($login, $senha){
     if(verificaLogin($login, $senha)){
       require_once ("../includes/login_adm_info.php");

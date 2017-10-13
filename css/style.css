@@ -297,3 +297,18 @@ a:link:active, a:visited:active {
   font-size: 25px !important;
   color: #E85950;
 }
+
+.delete_button{
+  display: inline-block;
+  position: relative;
+  bottom: 20px;
+}
+
+.delete_icon{
+  font-size: 25px !important;
+  color: #E85950;
+}
+
+.curso_bloco{
+  margin-bottom: 15px;
+}
