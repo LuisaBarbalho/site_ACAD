@@ -19,8 +19,12 @@
     require_once ("../library/library.php");
     require_once ("../session/session.php");
     require_once ("../includes/menu.php");
+    require_once ("../classes/Capacitacao.php");
+    require_once ("../classes/Texto.php");
     incluiLogout($_SESSION['login'], $_SESSION['senha']);
     incluiAdd($_SESSION['login'], $_SESSION['senha']);
+    $connectorTxt = new Texto ('../database/data.txt', '///');
+    $arrayCapacitacao = $connectorTxt->toArray();
   ?>
 
   <!-- divisão de 3 colunas contendo os cursos oferecidos -->
@@ -28,45 +32,38 @@
     <div class="row">
 
       <!-- 1a coluna: curso de Linux -->
-      <div class="curso_bloco col-md-4">
-        <img src="../img/linux_logo.png" height="80" width="80" />
-        <?php incluiDelete($_SESSION['login'], $_SESSION['senha']); ?>
-        <h3>Linux</h3>
-        <!-- pequena explicação -->
-        <p class="text-justify">
+      <?php
+      for ($i = 0; $i < count($arrayCapacitacao); $i++) {
+        $capacitacao = new Capacitacao($arrayCapacitacao[$i]);
+        echo '<div class="curso_bloco col-md-4">';
+          if (isset($_SESSION['login'])) {
+            echo '<form action="../controller/controller_apagarCurso.php" method="post">';
+              echo '<input type="hidden" name="_id" value="'.$capacitacao->_id.'" >';
+              echo '<input class="btn btn-danger" type="submit" value="Apagar Curso" onclick="return confirm("Tem certeza que deseja excluir curso?");" >';
+            echo '</form>';
+          }
+          echo '<img src="'.$capacitacao->_icone.'" height="80" width="80" />';
+          echo '<div class="delete_button text-right">';
+          echo '</div>';
+          echo '<h3>'.$capacitacao->_nomeDeApresentacao.'</h3>';
+          echo '<p class="text-justify">';
 
-        </p>
-        <!-- botão que leva à ementa e aos dados do curso,
-        direcionando para baixo por smooth scroll -->
-        <button class="btn btn-danger"><a href="./linux.php">Saiba Mais</a></button>
-        <?php incluiEdit($_SESSION['login'], $_SESSION['senha']); ?>
-      </div>
-
-      <!-- 2a coluna: curso de git -->
-      <div class="col-md-4">
-        <img src="../img/git_simbolo_logo.png" height="80" width="80" />
-        <h3>Git</h3>
-        <!-- pequena explicação -->
-        <p class="text-justify">
-
-        </p>
-        <!-- botão que leva à ementa e aos dados do curso,
-        direcionando para baixo por smooth scroll -->
-        <button class="btn btn-secondary" ><a href="#">Em breve</a></button>
-      </div>
-
-      <!-- 3a coluna: curso de PostgreSQL -->
-      <div class="col-md-4">
-        <img src="../img/postgresql_logo.png" height="80" width="80" />
-        <h3>PostgreSQL</h3>
-        <!-- pequena explicação -->
-        <p class="text-justify">
-
-        </p>
-        <!-- botão que leva à ementa e aos dados do curso,
-        direcionando para baixo por smooth scroll -->
-        <button class="btn btn-secondary"><a href="#">Em breve</a></button>
-      </div>
+          echo '</p>';
+          echo '<form action="./paginaCurso.php" method="post">';
+            echo '<input type="hidden" name="_idCurso" value='.$capacitacao->_id.'>';
+            echo '<input class="btn btn-danger" type="submit" value="Saiba Mais">';
+          echo '</form>';
+          echo '<div class="edit_button text-right">';
+            if (isset($_SESSION['login'])) {
+              echo '<form action="./editarCurso.php" method="post">';
+                echo '<input type="hidden" name="_idCurso" value='.$capacitacao->_id.'>';
+                echo '<input class="btn btn-danger" type="submit" value="Edidar">';
+              echo '</form>';
+            }
+          echo '</div>';
+        echo '</div>';
+      }
+      ?>
     </div>
   </div>
 

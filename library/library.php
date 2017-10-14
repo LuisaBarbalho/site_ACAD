@@ -28,13 +28,13 @@
 
   function incluiEdit($_login, $_senha){
     if($_login == "souadm" && $_senha == "1029384756"){
-      require_once ("../includes/edit_button.php");
+      require ("../includes/edit_button.php");
     }
   }
 
   function incluiDelete($_login, $_senha){
     if($_login == "souadm" && $_senha == "1029384756"){
-      require_once ("../includes/delete_button.php");
+      require ("../includes/delete_button.php");
     }
   }
 

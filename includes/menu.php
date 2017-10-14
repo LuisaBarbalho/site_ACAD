@@ -1,3 +1,8 @@
+<?php if (!isset($_SESSION['login'])) {
+  $_SESSION['login'] = "";
+  $_SESSION['senha'] = "";
+  }
+  ?>
 <nav id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
 

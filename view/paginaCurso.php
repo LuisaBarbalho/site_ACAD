@@ -1,3 +1,6 @@
+<?php
+require_once('../library/library.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +17,18 @@
 <body>
 
   <?php
-    $_tituloPagina = "Linux";
+    require_once ("../library/library.php");
+    require_once ("../session/session.php");
+    require_once ("../classes/Capacitacao.php");
+    require_once ("../classes/Texto.php");
+    $_id = $_POST['_idCurso'];
+    $connectorTxt = new Texto ('../database/data.txt', '///');
+    $arrayCapacitacao = $connectorTxt->toArray(); // -> transformar isto em uma biblioteca
+    $capacitacao = new Capacitacao ($arrayCapacitacao[$_id]);
+    $_tituloPagina = $capacitacao->_nomeDeApresentacao;
     $_subtituloPagina = "";
     require_once ("../includes/menu.php");
+    incluiLogout($_SESSION['login'], $_SESSION['senha']);
   ?>
 
   <!-- Ao apertar no "Saiba Mais" do curso de Linux,
@@ -26,7 +38,7 @@
 
       <div class="my-category">
         <div class="titulo-curso">
-          <p>Linux Básico para Programadores</p>
+          <p><?=$capacitacao->_nomeDoCurso?></p>
         </div>
         <a class="btn btn-danger btn-lg" href="./linux.php" role="button">Clique aqui para se inscrever!</a>
       </div>
@@ -34,34 +46,23 @@
         <div class="col-md-6 ementa">
           <h3>Ementa</h3>
           <ul>
-            <li>Aspectos básicos do Linux - 30 minutos</li>
-            <li>Startup e shutdown reset - 30 minutos</li>
-            <li>Usuário, superusuário (root), grupos, acesso, proteção - 60 minutos</li>
-            <li>Sessão, login, password, logout - 30 minutos</li>
-            <li>Sistema de arquivos - 30 minutos</li>
-            <li>Sistema hierárquico, árvore de diretórios, montagem de ramificações - 60 minutos</li>
-            <li>Tipos básicos de arquivos: plain files, directory - 30 minutos</li>
-            <li>Permissões para acesso a arquivos - 30 minutos</li>
-            <li>Processos, Daemons - 30 minutos</li>
-            <li>Comandos Básicos,  Comandos de ajuda e utilitários básicos - 60 minutos</li>
-            <li>Comandos de manipulação de arquivos - 30 minutos</li>
-            <li>Redirecionamento de entrada e saída - 30 minutos</li>
-            <li>Análise de logs- 30 minutos</li>
-            <li>Dúvidas - 90 minutos</li>
+            <?php for ($i = 0; $i < count($capacitacao->_ementa); $i++) : ?>
+            <li><?=$capacitacao->_ementa[$i]?></li>
+            <?php endfor; ?>
           </ul>
         </div>
 
         <div class="col-md-6 dados">
           <i class="material-icons icone-curso">person</i>
-          <p><b>Ministrante: </b>Luide Capanema dos Santos</p>
+          <p><b>Ministrante: </b><?=$capacitacao->_ministrante?></p>
           <i class="material-icons icone-curso">alarm_on</i>
-          <p><b>Carga Horária: </b>10 horas</p>
+          <p><b>Carga Horária: </b><?=$capacitacao->_cargaHoraria?></p>
           <i class="material-icons icone-curso">date_range</i>
-          <p><b>Período: </b>09 a 13 de outubro de 2017</p>
+          <p><b>Período: </b><?=$capacitacao->_periodo?></p>
           <i class="material-icons icone-curso">alarm</i>
-          <p><b>Horário: </b>9h às 11h</p>
+          <p><b>Horário: </b><?=$capacitacao->_horario?></p>
           <i class="material-icons icone-curso">place</i>
-          <p><b>Local: </b>SEDIS - Auditório</p>
+          <p><b>Local: </b><?=$capacitacao->_local?></p>
         </div>
       </div>
     </div>

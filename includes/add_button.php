@@ -1,5 +1,5 @@
-
-
 <div class="add_button text-right">
-  <button class="btn btn-danger"><a href="#">Novo Curso</a></button>
+	<form action="./novoCurso.php">
+  		<input class="btn btn-danger" type="submit" value="Novo Curso">
+  	</form>
 </div>
