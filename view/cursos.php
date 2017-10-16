@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,600" rel="stylesheet">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -36,10 +37,10 @@
       for ($i = 0; $i < count($arrayCapacitacao); $i++) {
         $capacitacao = new Capacitacao($arrayCapacitacao[$i]);
         echo '<div class="curso_bloco col-md-4">';
-          if (isset($_SESSION['login'])) {
+          if ($_SESSION['login'] == "souadm" && $_SESSION['senha'] == "1029384756") {
             echo '<form action="../controller/controller_apagarCurso.php" method="post">';
               echo '<input type="hidden" name="_id" value="'.$capacitacao->_id.'" >';
-              echo '<input class="btn btn-danger" type="submit" value="Apagar Curso" onclick="return confirm("Tem certeza que deseja excluir curso?");" >';
+              echo '<input class="btn btn-danger delete_icon" type="submit" value="&#xf00d;" onclick="return confirm("Tem certeza que deseja excluir curso?");" >';
             echo '</form>';
           }
           echo '<img src="'.$capacitacao->_icone.'" height="80" width="80" />';
@@ -54,10 +55,10 @@
             echo '<input class="btn btn-danger" type="submit" value="Saiba Mais">';
           echo '</form>';
           echo '<div class="edit_button text-right">';
-            if (isset($_SESSION['login'])) {
+            if ($_SESSION['login'] == "souadm" && $_SESSION['senha'] == "1029384756") {
               echo '<form action="./editarCurso.php" method="post">';
                 echo '<input type="hidden" name="_idCurso" value='.$capacitacao->_id.'>';
-                echo '<input class="btn btn-danger" type="submit" value="Edidar">';
+                echo '<input class="edit_icon" type="submit" value="&#xf044;">';
               echo '</form>';
             }
           echo '</div>';
